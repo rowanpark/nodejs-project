@@ -35,7 +35,7 @@ let myPromise = new Promise((resolve, reject) => {
 // Promise 객체 사용
 myPromise
   .then((result) => {
-    console.log("Success! Result is:", result);
+    console.log("Success! Result is: " + result);
   })
   .catch((error) => {
     console.log(error);
@@ -45,11 +45,12 @@ myPromise
 Promise 예제 2
 */
 // const fetch = require("node-fetch");
-// Node.js v14 이상에서 발생하는 ESM (ECMAScript Modules) 지원 관련 문제
-// node-fetch 모듈은 ESM을 사용하므로 require을 사용하는 CommonJS 모듈에서 문제가 발생
-// 해결 방법으로는 import 문법을 사용, require 문을 다음과 같이 수정하여 node-fetch 모듈을 가져올 수 있음
+// 1. Node.js v14 이상에서 발생하는 ESM (ECMAScript Modules) 지원 관련 문제
+// 2. node-fetch 모듈은 ESM을 사용하므로 require을 사용하는 CommonJS 모듈에서 문제가 발생
+// 3. 해결 방법으로는 import 문법을 사용, require 문을 다음과 같이 수정하여 node-fetch 모듈을 가져올 수 있음
 const fetch = (...args) =>
   import("node-fetch").then(({ default: fetch }) => fetch(...args));
+// import fetch from "node-fetch"; // 확장자를 .mjs로 바꾸면 사용 가능
 
 function getData(url) {
   return new Promise((resolve, reject) => {
