@@ -1,4 +1,4 @@
-import process from "process";
+import process from "process"; // 이거 쓰려면 package.json에 "type": "module" 추가해야 한다.
 
 process.on("beforeExit", (code) => {
   console.log(
